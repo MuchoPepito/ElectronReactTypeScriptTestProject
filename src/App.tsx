@@ -20,14 +20,16 @@ class App extends Component {
             Learn React
           </a>
           <br />
-          <MyMessage message="test" />
+          <MyMessage message="test5" />
+          <MyMessage message="test4" />
+          <MyMessage message="test3" />
         </header>
       </div>
     );
   }
 }
 
-function MyMessage(props: {message: string}) {
+const MyMessage = (props: {message: string}) => {
   return <div>my message is : {props.message}</div>
 }
 
