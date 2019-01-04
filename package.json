@@ -12,11 +12,13 @@
     "react-scripts": "2.1.2",
     "typescript": "3.2.2"
   },
+  "main": "public/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"set BROWSER=none&&yarn react-scripts start\" \"yarn electron-dev\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,5 +28,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^4.0.0",
+    "wait-on": "^3.2.0"
+  }
 }
