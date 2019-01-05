@@ -14,11 +14,14 @@
   },
   "main": "public/electron-starter.js",
   "scripts": {
-    "start": "concurrently \"set BROWSER=none&&yarn react-scripts start\" \"yarn electron-dev\"",
+    "start-mac": "concurrently \"wait-on http://localhost:3000 && yarn electron-dev-mac\" \"BROWSER=none yarn react-scripts start\" ",
+    "start": "concurrently \"wait-on http://localhost:3000 && yarn electron-dev\" \"set BROWSER=none&& yarn react-scripts start\" ",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
+    "waiton": "wait-on http://localhost:3000 && yarn electron-dev",
+    "electron-dev-mac": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-dev": "set ELECTRON_START_URL=http://localhost:3000&& electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
